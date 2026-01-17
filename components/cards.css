@@ -1,0 +1,280 @@
+/* 1. CLASES DE UTILIDAD (FUENTES) */
+.poppins-bold {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+}
+
+.poppins-regular {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+}
+
+/* 2. CONTENEDOR GENERAL */
+.cards__container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  padding: 40px 20px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* 3. ESTILO BASE DE LA TARJETA (ESCRITORIO) */
+.card {
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 25px;
+  width: 340px;
+  min-height: 550px;
+  padding: 40px 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(0, 209, 255, 0.5);
+}
+
+/* 4. BLOQUES DE ALINEACIÓN */
+.card__img-container {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin-bottom: 25px;
+  position: relative;
+}
+
+
+.card__title-div {
+  width: 100%;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.card__title {
+  color: #ffffff;
+  font-family: 'Poppins', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.card__description-div {
+  width: 100%;
+  padding-top: 10px;
+}
+
+.card__description {
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+  color: rgba(238, 238, 238, 0.7);
+  max-width: 280px;
+  margin: 0 auto;
+}
+
+/* 5. COMPOSICIONES DE IMÁGENES (CAPAS) */
+.card__layer {
+  position: absolute;
+  transition: transform 0.4s ease;
+}
+
+/* CARD 1 */
+.card-web .card__img {
+  width: 280px !important;
+  transform: scale(1);
+}
+
+/* CARD 2 */
+/* La Laptop (img-0): Va ATRÁS y un poco a la DERECHA */
+.card-anim.img-0 {
+    width: 240px !important;  /* Tamaño balanceado */
+    z-index: 1 !important;    /* AL FONDO */
+    transform: translate(25px, 10px) !important; /* Se mueve a la derecha y abajo */
+    filter: brightness(0.9);  /* Un poco más oscura para dar profundidad */
+}
+
+/* La Página Blanca (img-1): Va ADELANTE y a la IZQUIERDA */
+.card-anim.img-1 { 
+    width: 170px !important;  /* Tamaño para que se note */
+    z-index: 20 !important;   /* AL FRENTE (pisa a la laptop) */
+    transform: translate(-35px, -25px) !important; /* Se mueve a la izquierda y arriba, superponiéndose */
+    /* Sombra nítida para que se despegue del fondo */
+    filter: drop-shadow(0px 10px 20px rgba(0,0,0,0.5)) !important;
+}
+
+/* --- EFECTO HOVER (OPCIONAL) --- */
+.card:hover .card-anim.img-0 { transform: translate(35px, 15px) scale(0.98) !important; }
+.card:hover .card-anim.img-1 { transform: translate(-45px, -35px) scale(1.05) !important; }
+
+/* CARD 3 */
+.card-app.img-0 {
+  width: 100px;
+  transform: translateX(-70px) translateY(15px) rotate(-10deg) scale(0.9);
+  z-index: 1;
+  opacity: 0.5;
+}
+
+.card-app.img-1 {
+  width: 125px;
+  z-index: 3;
+  filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.5));
+}
+
+.card-app.img-2 {
+  width: 100px;
+  transform: translateX(70px) translateY(15px) rotate(10deg) scale(0.9);
+  z-index: 1;
+  opacity: 0.5;
+}
+
+/* 6. EFECTOS HOVER */
+.card:hover .card-app.img-1 {
+  transform: scale(1.08) translateY(-5px);
+}
+
+.card:hover .card-anim.img-1 {
+  transform: translate(-50px, -35px);
+}
+
+.card-web:hover .card__img {
+  transform: scale(1.03);
+}
+
+/* --- 7. RESPONSIVE: VERTICAL --- */
+@media (max-width: 480px) {
+  .card {
+    width: 90%;
+    max-width: 320px;
+    min-height: auto;
+    padding: 30px 15px;
+  }
+
+  .card__img-container {
+    height: 180px;
+  }
+
+  .card-web .card__img {
+    width: 180px;
+  }
+
+  .card__title {
+    font-size: 20px;
+  }
+
+  .card__description {
+    font-size: 14px;
+  }
+}
+
+/* --- 8. RESPONSIVE: HORIZONTAL (LANDSCAPE) --- */
+@media (max-height: 500px) and (orientation: landscape) {
+  .cards__container {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    justify-content: center;
+    align-items: stretch;
+    gap: 10px;
+    padding: 15px 5px;
+  }
+
+  .card {
+    flex: 0 1 32%;
+    min-width: 200px;
+    padding: 15px 10px;
+    min-height: auto;
+  }
+  .card__img-container {
+    height: 90px;
+    margin-bottom: 10px;
+    overflow: visible;
+  }
+
+  /* 2. CARD 1 (Web) - Ya te gusta como queda, la mantenemos */
+  .card-web .card__img {
+    width: 120px;
+  }
+
+  /* 3. CARD 2 (Animaciones) - Reajuste de Laptop y Capa */
+  /* CARD 2 (Animaciones) - AJUSTE FIGMA PERFECT */
+  /* La Laptop (Base) */
+  .card-anim.img-0 {
+    width: 260px;
+    /* Un poco más grande para llenar la card */
+    z-index: 1;
+    transform: translate(-20px, -10px);
+    /* La retiramos hacia atrás y a la izquierda */
+    filter: brightness(0.8);
+    /* Le bajamos el brillo para que resalte la de adelante */
+  }
+
+  /* La Tarjeta UI (La que debe estar ADELANTE) */
+  .card-anim.img-1 {
+    width: 170px;
+    z-index: 10 !important;
+    transform: translate(45px, 25px);
+    filter: drop-shadow(-15px 10px 25px rgba(0, 0, 0, 0.8));
+  }
+
+  .card:hover .card-anim.img-1 {
+  transform: translate(-55px, -35px) scale(1.05) !important;
+}
+
+  .card:hover .card-anim.img-0 {
+  transform: translate(30px, 15px) scale(0.95) !important;
+}
+
+  /* 4. CARD 3 (Apps) - Reajuste de los 3 celulares */
+  .card-app.img-1 {
+    width: 70px;
+    /* Celular central */
+  }
+
+  .card-app.img-0 {
+    width: 55px;
+    transform: translateX(-35px) translateY(5px) rotate(-10deg);
+  }
+
+  .card-app.img-2 {
+    width: 55px;
+    transform: translateX(35px) translateY(5px) rotate(10deg);
+  }
+
+  /* 5. TEXTOS - Nivelación total */
+  .card__title-div {
+    height: 45px;
+    margin-bottom: 5px;
+  }
+
+  .card__title {
+    font-size: 14px;
+    line-height: 1.1;
+  }
+
+  .card__description {
+    font-size: 10px;
+    line-height: 1.3;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}

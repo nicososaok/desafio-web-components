@@ -1,0 +1,131 @@
+.header {
+  width: 100%;
+  height: 114px;
+  padding: 27px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #13171C;
+}
+@media (min-width: 768px) {
+  .header {
+    height: 121px;
+    padding: 27px 83px;
+    border-bottom: solid 1px #eeeeee1a;
+  }
+}
+.header__home-logo {
+  width: 60px;
+  height: 60px;
+}
+
+.header__menu-logo {
+  width: 40px;
+  height: 40px;
+}
+@media (min-width: 768px) {
+  .header__menu-logo {
+    display: none;
+  }
+}
+.header__menu-nav {
+  display: none;
+}
+@media (min-width: 768px) {
+  .header__menu-nav {
+    width: 327px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.header__menu-nav__link {
+  color: #eeeeee;
+  font-size: 18px;
+  text-decoration: none;
+}
+
+/* Ventana del menú mobile */
+.header__menu-window {
+    display: none; /* Se activa con JS */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #000000; /* Negro total de Figma */
+    z-index: 9999; /* Por encima de todo, incluso de las cards */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* El botón de cerrar (X) arriba a la derecha */
+.header__menu-window__close-div {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    cursor: pointer;
+}
+
+.header__menu__close-btn {
+    width: 35px;
+    height: 35px;
+}
+
+/* Contenedor de los links centrados */
+.header__menu__links-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+
+.header__menu__link {
+    color: white;
+    font-size: 32px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.header__menu__link:hover {
+    color: #00ADB5;
+}
+
+.header__home-logo,
+.header__menu-logo,
+.footer__link-icon {
+  filter: brightness(0) invert(1);
+  transition: transform 0.3s ease;
+}
+
+.header__home-logo:hover {
+  transform: scale(1.05);
+}
+
+/* --- LINKS DESKTOP --- */
+.header__menu-nav__link {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  color: #eeeeee;
+  transition: color 0.3s ease;
+}
+
+.header__menu-nav__link:hover {
+  color: #00adb5;
+}
+
+.header__menu__link {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  color: #eeeeee;
+  transition: letter-spacing 0.3s ease, color 0.3s ease;
+}
+
+.header__menu__link:hover {
+  color: #00D1FF;
+  letter-spacing: 2px;
+}

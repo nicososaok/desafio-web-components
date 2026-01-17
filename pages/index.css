@@ -1,0 +1,323 @@
+/* --- 1. RESET Y BASES --- */
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  min-width: 375px;
+  background-color: #13171c;
+  color: white;
+  font-family: "Poppins", sans-serif;
+  overflow-x: hidden;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Tipografías Helper */
+.poppins-regular {
+  font-weight: 400;
+}
+
+.poppins-medium {
+  font-weight: 500;
+}
+
+.poppins-bold {
+  font-weight: 700;
+}
+
+.bienvenida-section {
+  background-color: #13171c;
+  /* sVH es mejor para móviles (evita problemas con la barra del navegador) */
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  /* Esto centra TODO el bloque (Texto + Cohete) en la mitad de la pantalla */
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.bienvenida__container {
+  width: 100%;
+  height: 724px;
+  padding: 70px 43px 164px 44px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 90px !important;
+}
+
+@media (min-width: 768px) {
+  .bienvenida__container {
+    height: 892px;
+    padding: 210px 16% 162px 12%;
+    flex-direction: row;
+    gap: 120px !important;
+    width: 100%;
+  }
+}
+
+.bienvenida__title-div {
+  width: 100%;
+  height: 225px;
+}
+
+@media (min-width: 768px) {
+  .bienvenida__title-div {
+    height: 520px;
+  }
+}
+
+.bienvenida__title-white {
+  font-size: 60px;
+  margin: 0;
+  text-align: center;
+  color: white;
+  line-height: 75px;
+}
+
+@media (min-width: 768px) {
+  .bienvenida__title-white {
+    font-size: clamp(5rem, 3.5rem + 3.125vw, 6rem);
+    line-height: 96px;
+    text-align: left;
+  }
+}
+
+.bienvenida__title-cyan {
+  font-size: 60px;
+  margin: 0;
+  text-align: center;
+  color: #00adb5;
+  line-height: 75px;
+}
+
+@media (min-width: 768px) {
+  .bienvenida__title-cyan {
+    font-size: clamp(5rem, 3.5rem + 3.125vw, 6rem);
+    line-height: 96px;
+    text-align: left;
+  }
+}
+
+.bienvenida__title-white,
+.bienvenida__title-cyan {
+  font-weight: 700 !important;
+  font-size: clamp(3.8rem, 14vw, 5rem) !important;
+  line-height: 1.1 !important;
+  letter-spacing: -1px !important;
+  font-family: 'Poppins', sans-serif;
+  margin: 0 !important;
+  text-transform: none;
+}
+
+.bienvenida__title-white {
+  color: #ffffff !important;
+}
+
+.bienvenida__title-cyan {
+  color: #00ADB5 !important;
+}
+
+/* --- IMAGEN: COHETE Y SOMBRA --- */
+.bienvenida__img-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px !important;
+}
+
+.bienvenida__img {
+  width: 100%;
+  max-width: 450px !important;
+  height: auto;
+  filter: drop-shadow(0 0 30px rgba(0, 173, 181, 0.2));
+  animation: flotar 3s ease-in-out infinite;
+  z-index: 2;
+  margin-top: 0.5px !important;
+}
+
+/* LA SOMBRA OSCURA DEBAJO */
+.bienvenida__img-shadow {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .bienvenida__img-shadow {
+    display: inherit;
+    width: clamp(13.6875rem,
+        1.125rem + 26.171875vw,
+        22.0625rem);
+    height: 50px;
+    background-color: #00000080;
+    border-radius: 100% 100%;
+  }
+}
+
+/* --- ANIMACIONES --- */
+@keyframes flotar {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-25px);
+  }
+}
+
+@keyframes sombra-escala {
+
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+
+  50% {
+    transform: scale(0.8);
+    opacity: 0.3;
+  }
+}
+
+/* --- AJUSTE DESKTOP (POSICIÓN FINAL) --- */
+@media (min-width: 768px) {
+  .bienvenida__container {
+    flex-direction: row;
+    /* Uno al lado del otro */
+    justify-content: center;
+    gap: 120px;
+    /* Los separa para que respiren */
+  }
+}
+
+.presentacion-section {
+  background-color: #192130;
+  height: auto !important;
+  padding: 71px 44px 112px 45px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.presentacion__container {
+  max-width: 1200px;
+  width: 100%;
+}
+
+.presentacion__title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  margin-bottom: 20px;
+}
+
+.presentacion__description {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #eeeeeebf;
+  max-width: 650px;
+}
+
+.presentacion__img {
+  width: 100%;
+  max-width: 450px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+@media (min-width: 768px) {
+  .presentacion-section {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 100px 10%;
+  }
+}
+
+.servicios-section {
+  background-color: #13171c;
+  background-image: url('../img/background.png');
+  background-repeat: repeat;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.cards__container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.service-card {
+  background-color: #2c333d;
+  border-radius: 10px;
+  padding: 30px;
+  width: 100%;
+  max-width: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.3s ease;
+  border: 1px solid #3e4651;
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+  border-color: #00adb5;
+}
+
+.service-card__img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  margin-bottom: 20px;
+}
+
+.service-card__title {
+  color: #00adb5;
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+.service-card__desc {
+  color: #eeeeee;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.header__container,
+.footer__container,
+.form__container {
+  width: 100%;
+}
+
+.form__container {
+  display: block !important;
+  width: 100%;
+  min-height: 400px;
+}
+
+.form__escribime {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Fix para menú mobile */
+@media (max-width: 768px) {
+  .header__nav-list {
+    background-color: #0d1117 !important;
+    opacity: 1 !important;
+    backdrop-filter: none !important;
+  }
+}

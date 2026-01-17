@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Desafio Web & components</title>
+
+    <link rel="icon" href="./img/coding.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700;800&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="./pages/index.css" />
+    <link rel="stylesheet" href="./components/header.css" />
+    <link rel="stylesheet" href="./components/footer.css" />
+    <link rel="stylesheet" href="./components/contactForm.css" />
+    <link rel="stylesheet" href="./pages/servicios.css" />
+
+    <script defer src="./components/header.js"></script>
+    <script defer src="./components/footer.js"></script>
+    <script defer src="./components/contactForm.js"></script>
+    <script defer src="./pages/index.js"></script>
+  </head>
+
+  <body>
+    <div class="header__container"></div>
+
+    <main>
+      <section class="bienvenida-section" id="home">
+        <div class="bienvenida__container">
+          <div class="bienvenida__title-div">
+            <h1 class="bienvenida__title-white">Hola</h1>
+            <h1 class="bienvenida__title-cyan">Soy Nicolás</h1>
+          </div>
+          <div class="bienvenida__img-div">
+            <img class="bienvenida__img" src="./img/cohete.png" alt="cohete" />
+            <div class="bienvenida__img-shadow"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="presentacion-section" id="portfolio">
+        <div class="presentacion__container">
+          <h2 class="presentacion__title poppins-bold">Soy Nicolás</h2>
+          <p class="presentacion__description poppins-regular">
+            Hola, soy Nicolás. Me apasiona el desarrollo web y la creación de experiencias digitales interactivas. Lorem ipsum dolor sit amet, consectetur
+            adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia
+            nostra, per inceptos himenaeos. Curabitur tempus urna at turpis condimentum lobortis....
+          </p>
+        </div>
+        <img class="presentacion__img" src="./img/foto-perfil-porfolio.jpg" alt="fotoNico" />
+      </section>
+
+      <section class="servicios-section" id="servicios">
+        <div class="servicios__title-div">
+          <h2 class="servicios__title-white poppins-bold">Mis</h2>
+          <h2 class="servicios__title-cyan poppins-bold">servicios</h2>
+        </div>
+        <div class="cards__container"></div>
+      </section>
+
+      <section class="escribime-section" id="contacto">
+        <h2 class="escribime-section__title poppins-bold">Escribime</h2>
+        <div class="form__container"></div>
+      </section>
+
+      <div class="footer__container"></div>
+    </main>
+  </body>
+</html>
