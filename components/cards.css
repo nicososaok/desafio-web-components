@@ -105,24 +105,28 @@
 /* CARD 2 */
 /* La Laptop (img-0): Va ATRÁS y un poco a la DERECHA */
 .card-anim.img-0 {
-    width: 240px !important;  /* Tamaño balanceado */
-    z-index: 1 !important;    /* AL FONDO */
-    transform: translate(25px, 10px) !important; /* Se mueve a la derecha y abajo */
-    filter: brightness(0.9);  /* Un poco más oscura para dar profundidad */
+  width: 240px !important;
+  z-index: 1 !important;
+  transform: translate(25px, 10px) !important;
+  filter: brightness(0.9);
 }
 
 /* La Página Blanca (img-1): Va ADELANTE y a la IZQUIERDA */
-.card-anim.img-1 { 
-    width: 170px !important;  /* Tamaño para que se note */
-    z-index: 20 !important;   /* AL FRENTE (pisa a la laptop) */
-    transform: translate(-35px, -25px) !important; /* Se mueve a la izquierda y arriba, superponiéndose */
-    /* Sombra nítida para que se despegue del fondo */
-    filter: drop-shadow(0px 10px 20px rgba(0,0,0,0.5)) !important;
+.card-anim.img-1 {
+  width: 170px !important;
+  z-index: 20 !important;
+  transform: translate(-35px, -25px) !important;
+  filter: drop-shadow(0px 10px 20px rgba(0, 0, 0, 0.5)) !important;
 }
 
 /* --- EFECTO HOVER (OPCIONAL) --- */
-.card:hover .card-anim.img-0 { transform: translate(35px, 15px) scale(0.98) !important; }
-.card:hover .card-anim.img-1 { transform: translate(-45px, -35px) scale(1.05) !important; }
+.card:hover .card-anim.img-0 {
+  transform: translate(35px, 15px) scale(0.98) !important;
+}
+
+.card:hover .card-anim.img-1 {
+  transform: translate(-45px, -35px) scale(1.05) !important;
+}
 
 /* CARD 3 */
 .card-app.img-0 {
@@ -202,31 +206,24 @@
     padding: 15px 10px;
     min-height: auto;
   }
+
   .card__img-container {
     height: 90px;
     margin-bottom: 10px;
     overflow: visible;
   }
 
-  /* 2. CARD 1 (Web) - Ya te gusta como queda, la mantenemos */
   .card-web .card__img {
     width: 120px;
   }
 
-  /* 3. CARD 2 (Animaciones) - Reajuste de Laptop y Capa */
-  /* CARD 2 (Animaciones) - AJUSTE FIGMA PERFECT */
-  /* La Laptop (Base) */
   .card-anim.img-0 {
     width: 260px;
-    /* Un poco más grande para llenar la card */
     z-index: 1;
     transform: translate(-20px, -10px);
-    /* La retiramos hacia atrás y a la izquierda */
     filter: brightness(0.8);
-    /* Le bajamos el brillo para que resalte la de adelante */
   }
 
-  /* La Tarjeta UI (La que debe estar ADELANTE) */
   .card-anim.img-1 {
     width: 170px;
     z-index: 10 !important;
@@ -235,17 +232,15 @@
   }
 
   .card:hover .card-anim.img-1 {
-  transform: translate(-55px, -35px) scale(1.05) !important;
-}
+    transform: translate(-55px, -35px) scale(1.05) !important;
+  }
 
   .card:hover .card-anim.img-0 {
-  transform: translate(30px, 15px) scale(0.95) !important;
-}
+    transform: translate(30px, 15px) scale(0.95) !important;
+  }
 
-  /* 4. CARD 3 (Apps) - Reajuste de los 3 celulares */
   .card-app.img-1 {
     width: 70px;
-    /* Celular central */
   }
 
   .card-app.img-0 {
@@ -258,7 +253,6 @@
     transform: translateX(35px) translateY(5px) rotate(10deg);
   }
 
-  /* 5. TEXTOS - Nivelación total */
   .card__title-div {
     height: 45px;
     margin-bottom: 5px;

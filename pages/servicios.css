@@ -11,7 +11,6 @@
   margin: 60px 0 40px 0 !important;
 }
 
-/* Solo afectamos a los H2 de servicios, no tocamos los H1 del Home */
 h2.servicios__title-white,
 h2.servicios__title-cyan {
   font-family: 'Poppins', sans-serif !important;
@@ -37,21 +36,23 @@ h2.servicios__title-cyan { color: #00ADB5 !important; }
   padding-bottom: 100px !important;
   max-width: 1200px !important;
   margin: 0 auto !important;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  align-items: stretch;
 }
 
 .service-card {
-  width: 330px !important;
-  min-height: 420px !important;
-  background: rgba(35, 41, 49, 0.1) !important;
-  backdrop-filter: blur(8px) !important;
-  -webkit-backdrop-filter: blur(8px) !important;
-  border: 1px solid rgba(255, 255, 255, 0.2) !important;
-  border-radius: 30px !important;
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: center !important;
-  padding: 40px 25px !important;
-  transition: transform 0.3s ease-in-out !important;
+    width: 330px !important;
+    min-height: 420px !important;
+    background: rgba(35, 41, 49, 0.1) !important;
+    backdrop-filter: blur(6px) !important;
+    -webkit-backdrop-filter: blur(6px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    border-radius: 30px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    padding: 35px 25px !important;
+    transition: transform 0.3s ease-in-out !important;
 }
 
 .service-card:hover {
@@ -83,13 +84,15 @@ h2.servicios__title-cyan { color: #00ADB5 !important; }
   height: auto !important;
 }
 
-/* Estilos de las cards específicas (Web, Animaciones, Apps) */
-.service-card:nth-child(1) .service-card__img { width: 260px !important; position: relative !important; }
-.service-card:nth-child(2) .service-card__img:nth-of-type(1) { width: 270px !important; z-index: 1 !important; transform: translate(30px, 20px) !important; }
-.service-card:nth-child(2) .service-card__img:nth-of-type(2) { width: 215px !important; z-index: 20 !important; transform: translate(-45px, 15px) !important; }
-.service-card:nth-child(3) .service-card__img:nth-of-type(1) { width: 125px !important; transform: translateX(-85px) rotate(-15deg) translateY(15px) !important; z-index: 5 !important; }
-.service-card:nth-child(3) .service-card__img:nth-of-type(2) { width: 135px !important; z-index: 10 !important; transform: translateY(0px) scale(1.05) !important; }
-.service-card:nth-child(3) .service-card__img:nth-of-type(3) { width: 125px !important; transform: translateX(85px) rotate(15deg) translateY(15px) !important; z-index: 5 !important; }
+/* Estos estilos AHORA SOLO afectarán a la sección de Servicios de la Home */
+.servicios-section .service-card:nth-child(1) .service-card__img { width: 260px !important; position: relative !important; }
+
+.servicios-section .service-card:nth-child(2) .service-card__img:nth-of-type(1) { width: 270px !important; z-index: 1 !important; transform: translate(30px, 20px) !important; }
+.servicios-section .service-card:nth-child(2) .service-card__img:nth-of-type(2) { width: 215px !important; z-index: 20 !important; transform: translate(-45px, 15px) !important; }
+
+.servicios-section .service-card:nth-child(3) .service-card__img:nth-of-type(1) { width: 125px !important; transform: translateX(-85px) rotate(-15deg) translateY(15px) !important; z-index: 5 !important; }
+.servicios-section .service-card:nth-child(3) .service-card__img:nth-of-type(2) { width: 135px !important; z-index: 10 !important; transform: translateY(0px) scale(1.05) !important; }
+.servicios-section .service-card:nth-child(3) .service-card__img:nth-of-type(3) { width: 125px !important; transform: translateX(85px) rotate(15deg) translateY(15px) !important; z-index: 5 !important; }
 
 .service-card__title {
   color: #FFFFFF !important;
@@ -104,4 +107,190 @@ h2.servicios__title-cyan { color: #00ADB5 !important; }
   font-size: 15px !important;
   line-height: 1.5 !important;
   text-align: center !important;
+}
+/* ===================================================
+   1. CABECERA (ESPEJO)
+   =================================================== */
+.portfolio-hero {
+  background-color: #13171c !important;
+  background-image: none !important;
+  min-height: 75svh;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+/* Forzar espejo en Desktop */
+@media (min-width: 768px) {
+  .portfolio-hero .bienvenida__container {
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .portfolio-hero .bienvenida__title-div {
+    text-align: left !important;
+    align-items: flex-start !important;
+  }
+}
+
+/* Títulos */
+.portfolio__title-white, .portfolio__title-cyan {
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: 700 !important;
+  font-size: clamp(3.5rem, 12vw, 5.5rem) !important;
+  line-height: 1.1 !important;
+  margin: 0 !important;
+}
+.portfolio__title-white { color: #ffffff !important; }
+.portfolio__title-cyan { color: #00adb5 !important; }
+
+/* ===================================================
+   2. SECCIÓN DE CARDS (DISEÑO GLASSMORPHISM)
+   =================================================== */
+.portfolio-cards-section {
+  background-color: #13171c;
+  background-image: url('../img/background.png') !important;
+  background-repeat: repeat;
+  padding: 100px 20px;
+  width: 100%;
+}
+
+.portfolio-cards-section .service-card {
+  width: 330px !important;
+  min-height: 420px !important;
+  background: rgba(35, 41, 49, 0.2) !important;
+  backdrop-filter: blur(10px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 30px !important;
+  padding: 35px 25px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  transition: transform 0.3s ease-in-out !important;
+  overflow: hidden !important;
+  margin: 0;
+}
+
+.portfolio-cards-section .service-card:hover {
+  transform: translateY(-12px) !important;
+  border: 2px solid rgba(0, 173, 181, 0.6) !important;
+  box-shadow: 0 10px 30px rgba(0, 173, 181, 0.2) !important;
+}
+
+/* Imagen de la card (Recta, 190px de alto) */
+.portfolio-cards-section .service-card__img {
+  width: 100% !important;
+  height: 190px !important;
+  border-radius: 0px !important;
+  object-fit: cover !important;
+  margin-bottom: 20px !important;
+  position: static !important;
+}
+
+/* Textos dentro de la card */
+.portfolio-cards-section .service-card__title {
+  color: #00adb5 !important;
+  font-size: 24px !important;
+  font-weight: 700 !important;
+  margin-bottom: 10px !important;
+}
+
+.portfolio-cards-section .service-card__desc {
+  color: #eeeeee !important;
+  font-size: 15px !important;
+  line-height: 1.5 !important;
+  text-align: center !important;
+}
+/* ============================================================
+   ENCAPSULAMIENTO TOTAL: SECCIÓN TRABAJOS (PORTFOLIO)
+   ============================================================ */
+
+/* 1. Contenedor con puntos (Aseguramos que ocupe todo el ancho) */
+.trabajos-section-puntos {
+    background-color: #13171c !important;
+    background-image: url('../img/background.png') !important;
+    background-repeat: repeat !important;
+    padding: 100px 20px !important;
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+}
+
+.cards__container.trabajos-container {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 40px !important;
+    justify-content: center !important;
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+}
+
+/* 2. La Card de Trabajos (Blindada contra .service-card) */
+.trabajos-card {
+    width: 330px !important;
+    min-height: 420px !important;
+    background: rgba(35, 41, 49, 0.2) !important;
+    backdrop-filter: blur(6px) !important;
+    -webkit-backdrop-filter: blur(6px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 30px !important;
+    padding: 35px 25px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    transition: transform 0.3s ease-in-out !important;
+    overflow: hidden !important;
+    text-decoration: none !important;
+}
+
+.trabajos-card:hover {
+    transform: translateY(-12px) !important;
+    border: 2.5px solid rgba(0, 173, 181, 0.6) !important;
+    box-shadow: 0 10px 30px rgba(0, 173, 181, 0.2) !important;
+    background: rgba(255, 255, 255, 0.05) !important;
+}
+
+/* 3. RESET DE IMAGEN (Aquí es donde se arregla el diseño) */
+.trabajos-card__img {
+    position: static !important;
+    width: 90% !important;
+    height: 170px !important;
+    object-fit: cover !important;
+    border-radius: 0px !important;
+    margin: 0 auto 20px auto !important;
+    transform: none !important;
+    display: block !important;
+}
+
+.trabajos-card__title {
+    color: #FFFFFF !important;
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 24px !important;
+    font-weight: 700 !important;
+    text-align: center !important;
+    margin: 15px 0 !important;
+}
+
+.trabajos-card__desc {
+    color: rgba(255, 255, 255, 0.8) !important;
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 15px !important;
+    line-height: 1.5 !important;
+    text-align: center !important;
+}
+@media (max-width: 480px) {
+    .trabajos-card {
+        width: 100% !important;
+        min-height: auto !important;
+        padding: 30px 15px !important;
+    }
+
+    .trabajos-card__img {
+        height: 200px !important;
+        width: 100% !important;
+    }
+    .trabajos-section-puntos {
+        padding: 60px 15px !important;
+    }
 }

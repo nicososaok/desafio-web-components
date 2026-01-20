@@ -1,56 +1,58 @@
 function createHeader(headerContainerEl) {
   const headerEl = document.createElement('header');
   headerEl.classList.add('header');
+
   headerEl.innerHTML = `
         <a href="./index.html">
-          <img class="header__home-logo" src="./img/coding.png" />
+          <img class="header__home-logo" src="./img/coding.png" alt="Logo" />
         </a>
 
-        <img class="header__menu-logo" src="./img/menu.svg" />
+        <img class="header__menu-logo" src="./img/menu.svg" alt="Abrir menú" />
 
         <nav class="header__menu-nav">
-          <a class="header__menu-nav__link poppins-regular" href="#portfolio">Portfolio</a>
-          <a class="header__menu-nav__link poppins-regular" href="#servicios">Servicios</a>
-          <a class="header__menu-nav__link poppins-regular" href="#contacto">Contacto</a>
+          <a class="header__menu-nav__link poppins-regular" href="./portfolio.html">Portfolio</a>
+          <a class="header__menu-nav__link poppins-regular" href="./index.html#servicios">Servicios</a>
+          <a class="header__menu-nav__link poppins-regular" href="./index.html#contacto">Contacto</a>
         </nav>
 
         <div class="header__menu-window">
           <div class="header__menu-window__close-div">
-            <img class="header__menu__close-btn" src="./img/close.svg" />
+            <img class="header__menu__close-btn" src="./img/close.svg" alt="Cerrar menú" />
           </div>
           <nav class="header__menu__links-div">
-            <a class="header__menu__link poppins-medium" href="#portfolio">Portfolio</a>
-            <a class="header__menu__link poppins-medium" href="#servicios">Servicios</a>
-            <a class="header__menu__link poppins-medium" href="#contacto">Contacto</a>
+            <a class="header__menu__link poppins-medium" href="./portfolio.html">Portfolio</a>
+            <a class="header__menu__link poppins-medium" href="./index.html#servicios">Servicios</a>
+            <a class="header__menu__link poppins-medium" href="./index.html#contacto">Contacto</a>
           </nav>
         </div>
-  `;
+    `;
 
-  // Agregamos el header al DOM
   headerContainerEl.appendChild(headerEl);
 
-  // --- LÓGICA DEL MENÚ (Todo esto va DENTRO de la función) ---
-
-  // 1. Seleccionamos los elementos que acabamos de crear
+  // --- LÓGICA DEL MENÚ ---
   const openButton = headerEl.querySelector('.header__menu-logo');
   const closeButton = headerEl.querySelector('.header__menu__close-btn');
   const menuWindow = headerEl.querySelector('.header__menu-window');
   const menuLinks = headerEl.querySelectorAll('.header__menu__link');
 
-  // 2. Evento para ABRIR el menú (Click en hamburguesa)
+  // Abrir menú
   openButton.addEventListener('click', () => {
-    menuWindow.style.display = 'flex'; // Mostramos la ventana negra
+    menuWindow.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
   });
 
-  // 3. Evento para CERRAR el menú (Click en la X)
+  // Cerrar menú (Botón X)
   closeButton.addEventListener('click', () => {
-    menuWindow.style.display = 'none'; // Ocultamos
+    menuWindow.style.display = 'none';
+    document.body.style.overflow = 'auto';
   });
 
-  // 4. Evento para CERRAR al tocar un link (UX: ir a la sección y cerrar menú)
   menuLinks.forEach((link) => {
     link.addEventListener('click', () => {
-      menuWindow.style.display = 'none';
+      setTimeout(() => {
+        menuWindow.style.display = 'none';
+        document.body.style.overflow = 'auto';
+      }, 100);
     });
   });
 }

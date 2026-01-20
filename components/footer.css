@@ -26,9 +26,9 @@
 @media (min-width: 768px) {
   .footer__links-nav {
     flex-direction: row;
-    justify-content: center; /* Corregimos el space-between que tenías */
+    justify-content: center;
     align-items: center;
-    gap: 60px; /* Más espacio entre links de footer */
+    gap: 60px;
   }
 }
 

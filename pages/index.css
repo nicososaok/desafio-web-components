@@ -1,7 +1,7 @@
-/* --- 1. RESET Y BASES --- */
 * {
   box-sizing: border-box;
 }
+
 body {
   margin: 0;
   min-width: 375px;
@@ -14,8 +14,6 @@ body {
 html {
   scroll-behavior: smooth;
 }
-
-/* Tipografías Helper */
 .poppins-regular {
   font-weight: 400;
 }
@@ -30,11 +28,9 @@ html {
 
 .bienvenida-section {
   background-color: #13171c;
-  /* sVH es mejor para móviles (evita problemas con la barra del navegador) */
   min-height: 100svh;
   display: flex;
   flex-direction: column;
-  /* Esto centra TODO el bloque (Texto + Cohete) en la mitad de la pantalla */
   justify-content: center;
   align-items: center;
   padding: 0 20px;
@@ -314,10 +310,354 @@ html {
 }
 
 /* Fix para menú mobile */
+/* Div del Título - Alineación espejo */
+.portfolio__title-div {
+  flex: 1;
+  /* Toma la mitad del espacio */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .portfolio__title-div {
+    align-items: flex-start;
+    text-align: left;
+  }
+}
+
+/* ===================================================
+    SECCIÓN PORTFOLIO (ESTILO PÁGINA PRINCIPAL)
+=================================================== */
+
+/* 1. SECCIÓN BASE: Fondo oscuro puro */
+.portfolio-section {
+  background-color: #13171c !important;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
+}
+
+.portfolio__container {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+}
+
+@media (min-width: 768px) {
+  .portfolio__container {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 5%;
+    gap: 100px;
+  }
+}
+
+/* 2. HEADER: Maletín arriba, Texto abajo */
+/* Div del Título */
+@media (min-width: 768px) {
+  .bienvenida__container {
+    flex-direction: row;
+    justify-content: center;
+    gap: 120px;
+  }
+}
+
+/* El maletín (reemplazo del cohete) */
+.portfolio__icon {
+  width: 100%;
+  max-width: 380px;
+  /* Evita que el maletín se vea gigante */
+  height: auto;
+  filter: drop-shadow(0 0 25px rgba(0, 173, 181, 0.2));
+  animation: flotar 3s ease-in-out infinite;
+}
+
+/* Título estilo Página Principal */
+.portfolio__title-white,
+.portfolio__title-cyan {
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: 700 !important;
+  font-size: clamp(3.5rem, 8vw, 5.5rem) !important;
+  line-height: 1.1 !important;
+  margin: 0 !important;
+}
+
+.portfolio__title-white {
+  color: #ffffff !important;
+}
+
+.portfolio__title-cyan {
+  color: #00ADB5 !important;
+}
+
+/* Sección de las Cards (Doodles de fondo) */
+.cards_container {
+  background-image: url('../img/background.png') !important;
+  background-repeat: repeat;
+  width: 100% !important;
+  padding: 100px 20px !important;
+  display: flex !important;
+  justify-content: center !important;
+  flex-wrap: wrap !important;
+  gap: 40px !important;
+}
+
+/* Contenedor del Maletín - Control de tamaño */
+.portfolio__img-div {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 4. CARDS: Tamaño exacto 330x420 (Glassmorphism) */
+.portfolio-section .service-card {
+  width: 330px !important;
+  min-height: 420px !important;
+  background: rgba(35, 41, 49, 0.2) !important;
+  backdrop-filter: blur(10px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 30px !important;
+  padding: 35px 25px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  transition: transform 0.3s ease-in-out !important;
+  overflow: hidden !important;
+}
+
+.portfolio-section .service-card:hover {
+  transform: translateY(-12px) !important;
+  border: 2.5px solid rgba(0, 173, 181, 0.6) !important;
+  box-shadow: 0 10px 30px rgba(0, 173, 181, 0.2) !important;
+}
+
+/* 5. IMAGEN: Rectangular y Esquinas Rectas (Reset de Servicios) */
+.portfolio-section .service-card__img {
+  transform: none !important;
+  position: static !important;
+  width: 100% !important;
+  height: 190px !important;
+  border-radius: 0px !important;
+  object-fit: cover !important;
+  display: block !important;
+  margin-bottom: 20px !important;
+}
+
+/* Limpieza de herencias */
+.portfolio-section .service-card__imgs-container {
+  position: static !important;
+  height: auto !important;
+  width: 100% !important;
+  display: block !important;
+}
+
+@keyframes levitate {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.bienvenida__img-div {
+  transform: translateY(-50px);
+  transition: transform 0.3s ease;
+}
+
+.bienvenida__img-shadow {
+  transform: translateY(0px);
+}
+
+/* 1. EL CONTENEDOR DE LA TARJETA (Caja Principal) */
+/* 1. TAMAÑO ALARGADO PARA LAS SEIS CARDS */
+.service-card,
+.trabajos-card {
+  width: 100%;
+  max-width: 320px;
+  height: 500px;
+  background-color: #000;
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+/* 2. EFECTO HOVER (Igual para las seis) */
+.service-card:hover,
+.trabajos-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 20px rgba(0, 255, 255, 0.2);
+  border: 1px solid #00ffff;
+}
+
+/* 3. AJUSTE DE IMAGEN PARA CARDS LARGAS */
+.service-card__imgs-container,
+.trabajos-card__img,
+.service-card__img {
+  width: 100% !important;
+  height: 250px !important;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+/* EFECTO ZOOM EN LA FOTO AL HACER HOVER */
+.service-card:hover .service-card__img,
+.trabajos-card:hover .trabajos-card__img {
+  transform: scale(1.05);
+}
+
+/* 4. TEXTOS */
+.service-card__title,
+.trabajos-card__title {
+  font-size: 22px;
+  margin: 20px;
+  color: #fff;
+}
+
+.service-card__desc,
+.trabajos-card__desc {
+  font-size: 14px;
+  margin: 0 20px 20px 20px;
+  color: #ccc;
+  flex-grow: 1;
+}
+
+/* 1. UNIFICAR DISTANCIA (Más pegadas) */
+.cards__container,
+.trabajos-container {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px !important;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px;
+  justify-items: center;
+}
+
+/* 2. ESTADO BASE DE LAS CARDS */
+.service-card,
+.trabajos-card {
+  height: 500px;
+  width: 100%;
+  background-color: #000;
+  border-radius: 20px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+/* 3. EFECTO "BLANQUEADO" AL PASAR EL MOUSE */
+.service-card:hover,
+.trabajos-card:hover {
+  transform: translateY(-5px);
+}
+
+.service-card:hover img,
+.trabajos-card:hover img {
+  opacity: 0.9;
+}
+
+/* 1. ESTRUCTURA ESPEJO (TAMAÑO Y FORMATO) */
+.service-card,
+.trabajos-card {
+  width: 100%;
+  max-width: 320px;
+  height: 550px;
+  background-color: #000;
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+/* 2. EL ÚNICO EFECTO (SUBIR UN POQUITO AL PASAR EL MOUSE) */
+.service-card:hover,
+.trabajos-card:hover {
+  transform: translateY(-10px);
+}
+
+/* 3. IMÁGENES IDÉNTICAS */
+.service-card__imgs-container,
+.service-card__img,
+.trabajos-card__img {
+  width: 100% !important;
+  height: 250px !important;
+  object-fit: cover;
+  margin: 0;
+  padding: 0;
+  display: block;
+}
+
+/* 4. DISTANCIAS (GAP) IGUALES Y PEGADAS */
+.cards__container,
+.trabajos-container {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px !important;
+  justify-items: center;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+/* 5. TEXTOS SIN CAMBIOS DE COLOR */
+.service-card__title,
+.trabajos-card__title {
+  color: #fff;
+  font-size: 22px;
+  margin: 20px 20px 10px;
+}
+
+.service-card__desc,
+.trabajos-card__desc {
+  color: #ccc;
+  font-size: 14px;
+  margin: 0 20px 20px;
+  flex-grow: 1;
+}
+
+/* =======================================================
+  AJUSTES EXCLUSIVOS PARA MOBILE (Celulares)
+   ======================================================= */
 @media (max-width: 768px) {
-  .header__nav-list {
-    background-color: #0d1117 !important;
-    opacity: 1 !important;
-    backdrop-filter: none !important;
+
+  .presentacion__title,
+  .form__container h2,
+  .servicios__title,
+  h2 {
+    font-size: 28px !important;
+    margin-bottom: 20px !important;
+  }
+
+  .contact-form input[type="email"],
+  .form__container input[name="email"],
+  #email {
+    margin-top: 25px !important;
+  }
+
+  .contact-form label[for="email"] {
+    display: block !important;
+    margin-top: 20px !important;
   }
 }

@@ -1,28 +1,44 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portfolio | Mis Proyectos</title>
+    <title>Portfolio | Nicolás Sosa</title>
 
     <link rel="stylesheet" href="./pages/index.css" />
     <link rel="stylesheet" href="./components/header.css" />
     <link rel="stylesheet" href="./components/footer.css" />
-
+    <link rel="stylesheet" href="./pages/servicios.css" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700;800&display=swap" rel="stylesheet" />
   </head>
+
   <body>
     <div class="header__container"></div>
 
-    <main class="section-container">
-      <h1 class="bienvenida__title-white poppins-bold" style="text-align: center">Mi <span class="bienvenida__title-cyan">Portfolio</span></h1>
-      <div class="portfolio-list"></div>
+    <main>
+      <section class="bienvenida-section">
+        <div class="bienvenida__container">
+          <div class="bienvenida__title-div">
+            <h1 class="portfolio__title-white">Mis</h1>
+            <h1 class="portfolio__title-cyan">trabajos</h1>
+          </div>
+          <div class="bienvenida__img-div">
+            <img src="./img/maletin.png" alt="Icono" class="bienvenida__img" />
+            <div class="bienvenida__img-shadow"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="trabajos-section-puntos">
+        <div class="cards__container trabajos-container" id="services-target"></div>
+      </section>
     </main>
 
     <div class="footer__container"></div>
 
-    <script defer src="./components/header.js"></script>
-    <script defer src="./components/footer.js"></script>
-    <script defer src="./pages/portfolio.js"></script>
+    <script src="./components/header.js"></script>
+    <script src="./components/footer.js"></script>
+    <script src="./components/contactForm.js"></script>
+    <script src="./pages/index.js"></script>
   </body>
 </html>
