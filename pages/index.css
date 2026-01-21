@@ -14,6 +14,7 @@ body {
 html {
   scroll-behavior: smooth;
 }
+
 .poppins-regular {
   font-weight: 400;
 }
@@ -483,7 +484,6 @@ html {
 }
 
 /* 1. EL CONTENEDOR DE LA TARJETA (Caja Principal) */
-/* 1. TAMAÑO ALARGADO PARA LAS SEIS CARDS */
 .service-card,
 .trabajos-card {
   width: 100%;
@@ -638,26 +638,98 @@ html {
 }
 
 /* =======================================================
-  AJUSTES EXCLUSIVOS PARA MOBILE (Celulares)
+   ESTILOS DEL MENÚ MOBILE (Tipo Figma)
    ======================================================= */
+
+/* Ocultamos los botones en desktop */
+.nav__toggle,
+.nav__close {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* Media Query solo para celulares */
 @media (max-width: 768px) {
 
-  .presentacion__title,
-  .form__container h2,
-  .servicios__title,
-  h2 {
-    font-size: 28px !important;
-    margin-bottom: 20px !important;
+  /* Mostrar el botón hamburguesa */
+  .nav__toggle {
+    display: block;
+    z-index: 100;
+    /* Por si acaso */
   }
 
-  .contact-form input[type="email"],
-  .form__container input[name="email"],
-  #email {
-    margin-top: 25px !important;
+  /* ESTADO INICIAL DEL MENÚ (Oculto) */
+  .nav__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    /* Pantalla completa */
+    background-color: #000000;
+    /* Fondo NEGRO SÓLIDO */
+    z-index: 9999;
+    /* Por encima de TODO */
+
+    /* Para centrar el contenido */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    /* Lo ocultamos moviéndolo fuera de la pantalla */
+    transform: translateX(100%);
+    transition: transform 0.4s ease-in-out;
+    /* Animación suave */
   }
 
-  .contact-form label[for="email"] {
-    display: block !important;
-    margin-top: 20px !important;
+  /* CLASE PARA MOSTRAR EL MENÚ (Esta clase la pone JS) */
+  .nav__menu.show-menu {
+    transform: translateX(0);
+    /* Lo traemos a la pantalla */
   }
+
+  /* Botón de cerrar 'X' */
+  .nav__close {
+    display: block;
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    font-size: 2rem;
+    /* Más grande como en Figma */
+  }
+
+  /* Estilo de la lista y enlaces */
+  .nav__list {
+    list-style: none;
+    text-align: center;
+    padding: 0;
+  }
+
+  .nav__item {
+    margin-bottom: 2rem;
+    /* Separación entre enlaces */
+  }
+
+  .nav__link {
+    font-size: 2rem;
+    /* Texto grande como en Figma */
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+  }
+
+  .nav__link:hover {
+    color: #00ffff;
+    /* Color hover opcional (ej. cyan) */
+  }
+}
+
+.header__menu-window {
+  background-color: #13171c;
 }

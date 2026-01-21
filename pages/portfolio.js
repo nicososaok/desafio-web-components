@@ -28,7 +28,6 @@ async function renderPortfolio() {
       }
 
       const card = document.createElement('div');
-      // USAMOS CLASES NUEVAS PARA EVITAR EL 'ABSOLUTE' DE SERVICIOS
       card.className = 'trabajos-card';
       card.innerHTML = `
         <img class="trabajos-card__img" src="${imgUrl}" alt="${f.trabajosTitle}" />
